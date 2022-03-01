@@ -1,0 +1,28 @@
+{% extends "Dealer/inner-page.html"%}
+{% block body %}
+<body>
+
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <td>SL NO</td>
+      <td>Product Namre</td>
+      <td>Brand</td>
+      <td>Cost</td>
+		<td>Quantity</td>
+    <td></td>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{loop.index}}</td>
+      <td>{{ i["name"]}}</td>
+      <td>{{ i["brand"] }}</td>
+	  <td>{{ i["cost"] }}&nbsp;</td>
+    <td>{{ i["quantity"] }}</td>
+    <td><a href="/update_stock/{{i["medicine_id"]}}" class="btn btn-primary">Update</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</body>
+{% endblock %}

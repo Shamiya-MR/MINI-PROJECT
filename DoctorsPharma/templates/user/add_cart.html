@@ -1,0 +1,18 @@
+{% extends "user/inner-page.html"%}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/add_cart_post">
+  <table class="table table-bordered">
+    <tr>
+      <th>Product<input type="hidden" name="pid" value="{{ data['medicine_id'] }}"></th>
+      <td>{{ data['name'] }}</td>
+    </tr>
+    <tr>
+      <th>Quantity</th>
+      <td><input type="number" name="textfield" id="textfield" class="form-control" required/></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="submit" name="button" id="button" value="Add" class="btn btn-outline-success"/></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

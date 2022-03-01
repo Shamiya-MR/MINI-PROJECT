@@ -1,0 +1,64 @@
+{% extends "Dealer/inner-page.html"%}
+{% block body %}
+<form action="/update_status" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table class="table table-striped">
+    <tr>
+      <td  colspan="5"><label for="textfield"></label>
+        <table  class="table table-striped">
+
+          <tr>
+            <td>customer name</td>
+            <td>&nbsp;{{ data2['user_name'] }}</td>
+          </tr>
+          <tr>
+            <td>contact</td>
+            <td>{{ data2['phone'] }}&nbsp;</td>
+          </tr>
+          <tr>
+            <td>email</td>
+            <td>{{ data2['email'] }}&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td>Delivery Address</td>
+            <td>{{ data5['house_name'] }}<br>{{ data5['building_no'] }}<br>{{ data5['place'] }}<br>{{ data5['city'] }}<br>{{ data5['district'] }}<br>{{ data5['state'] }}&nbsp;</td>
+          </tr>
+      </table>        <label for="fileField"></label></td>
+    </tr>
+    <tr>
+      <th>#</th>
+      <th>Item</th>
+      <th>Quantity</th>
+      <th>Price</th>
+        <th>Total</th>
+    </tr>
+  {% for i in data3 %}
+    <tr>
+      <td width="14">&nbsp;{{ loop.index }}</td>
+      <td width="16">&nbsp;{{ i['name'] }}</td>
+      <td width="34">{{ i['qqty'] }}&nbsp;</td>
+      <td width="70">{{ i['cost'] }}&nbsp;</td>
+    <td width="34">{{i["price"]}} </td>
+    </tr>
+  {% endfor %}
+    <tr>
+      <td colspan="4"> <div align="right">Total</div></td>
+      <td>{{ tot }}&nbsp;</td>
+    </tr>
+{% if data5["status"]=="pending" %}
+<tr>
+  <td colspan="5"> 
+    <input type="submit" value="Update Shipment Status" class="btn btn-primary"/>
+  </td>
+</tr>
+{% else %}
+<tr>
+  <td>
+    Status
+  </td>
+  <td colspan="5">{{ data5['status'] }} - on - {{ data5["date"] }}</td>
+</tr>
+{%endif %}
+</table>
+</form>
+{% endblock %}

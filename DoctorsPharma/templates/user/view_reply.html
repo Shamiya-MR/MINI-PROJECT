@@ -1,0 +1,35 @@
+{% extends "user/inner-page.html"%}
+{% block body %}
+<form name="f1" action="/view_reply_post" method="post">
+    <table class="table table-borderless">
+        <tr>
+            <td>From</td>
+            <td><input type="date" name="d1" class="form-control" required></td>
+            <td>To</td>
+            <td><input type="date" name="d2" class="form-control" required></td>
+            <td><input type="submit" name="s1" value="GO" class="btn btn-outline-success"></td>
+        </tr>
+    </table>
+    <table class="table table-borderless">
+        <tr>
+            <th>#</th>
+            <th>Date</th>
+            <th>Complaint</th>
+            <th>Reply</th>
+
+        </tr>
+        {% for i in data %}
+        <tr>
+            <td>{{ loop.index }}</td>
+              <td>{{ i['date'] }}</td>
+            <td>{{ i['complaint'] }}</td>
+              {% if i['status']=='pending' %}
+                <td>-------------------------</td>
+            {% else %}
+                <td>{{ i['reply'] }}</td>
+            {% endif %}
+        </tr>
+       {% endfor %}
+    </table>
+</form>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "user/inner-page.html"%}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/add_prescription">
+  <table class="table table-ordered">
+    <tr>
+      <td align="right"><input type="submit" name="button" id="button" class="btn btn-outline-primary" value="Purchase" /></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <table class="table table-borderd">
+    <tr>
+      <td>#</td>
+      <td>Product</td>
+      <td>Quantity</td>
+      <td>Price</td>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ i['name'] }}</td>
+      <td>{{ i['quantity'] }}</td>
+      <td>{{ i['total_amnt'] }}</td>
+      <td><a href="/edit_cart/{{ i['cart_id'] }}" class="btn btn-outline-success">Edit</a></td>
+      <td><a href="/delete_cart/{{ i['cart_id'] }}" class="btn btn-outline-danger" onclick="return confirm('Do you want to remove this item from cart?')">Remove</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+ 
+</form>
+{% endblock %}

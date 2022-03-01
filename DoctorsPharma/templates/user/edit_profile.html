@@ -1,0 +1,64 @@
+{% extends "user/inner-page.html"%}
+{% block body %}
+<form method="post" action="/edit_profile_post">
+    <table class="table table-borderless">
+        <tr>
+            <td colspan="2" align="center"><img src="{{ data['photo'] }}" width="100px" height="100px"></td>
+        </tr>
+        <tr><input type="hidden" name="uslid" value="{{ data['login_id'] }}">
+            <th>Photo</th>
+            <td><input type="file" name="filefield" class="form-control"></td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td><input type="text" name="n1" required value="{{ data['user_name'] }}"  class="form-control"></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><input type="email" name="n2" required value="{{ data['email'] }}" class="form-control"></td>
+        </tr>
+        <tr>
+            <th>Phone</th>
+            <td><input type="text"  name="n3" value="{{ data['phone'] }}"  class="form-control" /></td>
+        </tr>
+        <tr>
+
+            <th>Age</th>
+            <td><input type="text" name="n4" required value="{{ data['dob'] }}" class="form-control" ></td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td><input type="radio" name="n5" {%if data['gender']=='Male' %} checked {% endif %} value="Male">Male<br>
+                <input type="radio" name="n5" {%if data['gender']=='Female' %} checked {% endif %}  value="Female">Female</td>
+        </tr>
+       <tr>
+            <th>Place</th>
+            <td><input type="text" name="n6" required  value="{{ data['place'] }}" class="form-control"></td>
+        </tr>
+        <tr>
+            <th>Post</th>
+            <td><input type="text" name="n7" required value="{{ data['post'] }}" class="form-control"></td>
+        </tr>
+           <tr>
+            <th>District</th>
+               <td><select name="n8" required class="form-control">
+                   <option value="{{ data['district'] }}">{{ data['district'] }}</option>
+                   <option></option>
+                   <option>Trivandrum</option>
+                   <option>Kollam</option>
+                   <option>Kottayam</option>
+                   <option>Alappuzha</option>
+               </select></td>
+        </tr>
+           <tr>
+            <th>Pincode</th>
+            <td><input type="text" name="n9" required  maxlength="6" value="{{ data['pin'] }}" class="form-control"></td>
+        </tr>
+
+
+        <tr>
+            <td colspan="2" align="center"><input type="submit" name="s1" value="Update" class=" btn btn-outline-success"></td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

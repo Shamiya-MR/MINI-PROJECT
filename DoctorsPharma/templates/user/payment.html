@@ -1,0 +1,41 @@
+{% extends "user/inner-page.html"%}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/purchase_post">
+<table class="table table-borderless">
+  <tr>
+    <td>House NO</td>
+    <td><input type="text" name="t1" required class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Building No</td>
+    <td><input type="text" name="t2" required class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Place</td>
+    <td><input type="text" name="t3" required class="form-control"></td>
+  </tr>
+  <tr>
+    <td>City</td>
+    <td><input type="text" name="t4" required class="form-control"></td>
+  </tr>
+  <tr>
+    <td>District</td>
+    <td><input type="text" name="t5" required class="form-control"></td>
+  </tr>
+  <tr>
+    <td>State</td>
+    <td><input type="text" name="t6" required class="form-control"></td>
+  </tr>
+  <tr>
+    <td>Account No</td>
+    <td><input type="text" name="textfield" id="textfield" required class="form-control"/></td>
+  </tr>
+  <tr>
+    <td>Pincode</td>
+    <td><input type="text" name="textfield2" id="textfield2" required class="form-control"/></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><input type="submit" name="button" id="button" value="Submit" class="btn btn-outline-success"/></td>
+    </tr>
+</table></form>
+{% endblock %}

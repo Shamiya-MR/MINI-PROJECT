@@ -1,0 +1,29 @@
+{% extends"Admin/inner-page.html" %}
+{% block body %}
+<section>
+  <div>
+<form id="form1" name="form1" method="post" action="/sendrply_post">
+  <h2>Send Reply</h2>
+<table class="table table-striped">
+  <tr>
+    <td>Complaint</td>
+    <td>{{ data['complaint'] }}</td>
+  </tr>
+  <tr>
+    <td>
+      Reply<input type="hidden" name="com_id" value="{{ data['complaint_id'] }}">
+          
+    </td>
+    <td><textarea name="textarea" class="form-control"></textarea></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <input type="submit" name="Submit" value="Send" class="btn btn-outline-success"/>
+     </td>
+  </tr>
+</table>
+ </form>
+</body>
+  </div>
+</section>
+{%endblock%}

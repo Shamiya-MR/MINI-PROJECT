@@ -1,0 +1,44 @@
+{% extends "Dealer/inner-page.html"%}
+{% block body %}
+<body>
+<form name="form1" method="post" action="/dealer_viewmedicines_post">
+  <table class="table table-striped">
+    <tr>
+      <td><h4>Medicine Name</h4></td>
+      <td><input type="text" name="name" class="form-control"/></td>
+      <td colspan="5"><label for="select"></label>
+      
+          <input type="submit" name="button" id="button" value="Submit" class="btn btn-primary"></td>
+    </tr>
+    <tr>
+      <td><h4>Si.no</h4></td>
+      <td><h4>Name</h4></td>
+      <td><h4>Brand</h4></td>
+      <td><h4>Dose</h4></td>
+      <td><h4>Prescription</h4></td>
+      <td><h4>Side Effect</h4></td>
+      <td><h4>Cost</h4></td>
+      <td>&nbsp;</td>
+      <td></td>
+      <td></td>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{loop.index}}</td>
+    <td>{{i["name"]}}</td>
+      <td>{{i["brand"]}}</td>
+      <td>{{i["dose"]}}</td>
+      <td>{{i["prescription"]}}</td>
+      <td>{{i["side_effect"]}}</td>
+      <td>{{i["cost"]}}</td>
+      <td><a href="/dealer_editmedicines/{{ i['medicine_id'] }}" class="btn btn-primary">Edit</a></td>
+       <td><a href="/dealer_deletemedicines/{{ i['medicine_id'] }}" class="btn btn-danger">Delete</a></td>
+       <td>
+        <a href="/update_stock/{{ i['medicine_id'] }}" class="btn btn-primary">Update Stock</a>
+       </td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

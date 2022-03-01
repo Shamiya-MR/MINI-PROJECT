@@ -1,0 +1,39 @@
+{% extends "Dealer/inner-page.html"%}
+{% block body %}
+<body>
+  <form method="post" action="/dealer_viewstock_post">
+    <table class="table table-striped">
+      <tr>
+        <td>Name</td>
+<td><input type="text" name="name" class="form-control"/></td>
+      </tr>
+
+      <td>
+        <input type="submit" value="Search" class="btn btn-primary"/>
+      </td>
+    </table>
+  </form>
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <td>SL NO</td>
+      <td>Product Namre</td>
+      <td>Brand</td>
+      <td>Cost</td>
+		<td>Quantity</td>
+    <td></td>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{loop.index}}</td>
+      <td>{{ i["name"]}}</td>
+      <td>{{ i["brand"] }}</td>
+	  <td>{{ i["cost"] }}&nbsp;</td>
+    <td>{{ i["quantity"] }}</td>
+    <td><a href="/update_stock/{{i["medicine_id"]}}" class="btn btn-primary">Update</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</body>
+{% endblock %}

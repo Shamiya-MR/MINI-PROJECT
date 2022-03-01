@@ -1,0 +1,43 @@
+{% extends"Admin/inner-page.html" %}
+{% block body %}
+<section>
+  <div>
+<form id="form1" name="form1" method="post" action="">
+  <h2><strong>User Info</strong></h2>
+<table class="table table-striped">
+
+  <tr>
+    <td colspan="5">
+      Search
+    </td>
+    <td>
+          <input type="text" name="textfield" class="form-control"/>
+    </td>
+    <td>
+    <input type="submit" name="s1" value="Search" class="btn btn-outline-success">
+    </td>
+  </tr>
+</table>
+  <table class="table table-striped">
+  <tr>
+    <td>#</td>
+    <td>Name</td>
+    <td>Contact</td>
+    <td>DOB &amp;Gender </td>
+    <td>Address</td>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>{{ loop.index }}</td>
+    <td>{{ i['user_name'] }}</td>
+    <td>{{ i['email'] }}<br/>{{ i['phone'] }}</td>
+    <td>{{ i['dob'] }}<br/>{{ i['gender'] }}</td>
+    <td>{{ i['place'] }}<br/>{{ i['post'] }}<br/>{{ i['district'] }}<br/>{{ i['pin'] }}&nbsp;</td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+  </div>
+</section>
+{% endblock %}
+

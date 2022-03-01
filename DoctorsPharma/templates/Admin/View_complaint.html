@@ -1,0 +1,43 @@
+{% extends"Admin/inner-page.html" %}
+{% block body %}
+<section>
+  <div>
+<form id="form1" name="form1" method="post" action="/viewComplaint_post">
+  <h2><strong>Complaints and replies</strong></h2>
+  <table class="table table-striped">
+    <tr>
+      <th>From</th>
+      <td><input type="date" name="textfield" class="form-control"/></td>
+      <th>To</th>
+      <td><input type="date" name="textfield2" class="form-control"/></td>
+      <td><input type="submit" name="Submit" value="Go" class="btn btn-outline-success" /></td>
+    </tr>
+  </table>
+  <table class="table table-striped">
+    <tr>
+      <td>#</td>
+      <td>Date</td>
+      <td>User info </td>
+      <td>Complaint</td>
+      <td>Replies</td>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ i['date'] }}</td>
+      <td>{{ i['user_name'] }}<br>{{ i['email'] }}</td>
+      <td>{{ i['complaint'] }}</td>
+      {% if i['status']=='pending' %}
+          <td><a href="/sendRply/{{ i['complaint_id'] }}" class="btn btn-outline-success">Reply</a></td>
+      {% else %}
+          <td>{{ i['reply'] }}</td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+  </div>
+</section>
+{%endblock%}

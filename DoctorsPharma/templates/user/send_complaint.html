@@ -1,0 +1,16 @@
+{% extends "user/inner-page.html"%}
+{% block body %}
+<form name="f1" action="/send_complaint_post" method="post">
+    <table class="table table-borderless">
+    <tr>
+        <td>Complaint</td>
+        <td><textarea name="txtarea" class="form-control">
+
+        </textarea></td>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="submit" name="s1" value="Send" class="btn btn-outline-success"></td>
+    </tr>
+    </table>
+</form>
+{% endblock%}

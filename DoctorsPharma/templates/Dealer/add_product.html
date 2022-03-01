@@ -1,0 +1,50 @@
+{% extends "Dealer/inner-page.html"%}
+{% block body %}
+<body>
+<form action="/dealer_addmedicines_post" method="post"  name="form1" id="form1">
+  <table class="table table-striped">
+  
+     <tr>
+      <td><h4>Name</h4></td>
+      <td><label for="textfield"></label>
+       <input type="text" name="textfield" class="form-control" id="textfield" required /></td>
+    </tr>
+    <tr>
+      <td><h4>Brand</h4></td>
+      <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" class="form-control" id="textfield2" required/></td>
+    </tr>
+    <tr>
+      <td><h4>Dose</h4></td>
+      <td><label for="textfield3"></label>
+      <input type="text" name="textfield3" class="form-control" id="textfield3" required /></td>
+    </tr>
+    <tr>
+      <td><h4>Prescription</h4></td>
+      <td>
+      <!--<input type="text" name="textfield4" id="textfield4" />-->
+         <textarea name="textfield4" id="textarea"  cols="45" rows="5"class="form-control" required></textarea>
+      </td>
+
+    </tr>
+    <tr>
+      <td><h4>Side Effect</h4></td>
+      <td>
+      <!--<input type="text" name="textfield4" id="textfield4" />-->
+         <textarea name="side" id="textarea" cols="45" rows="5"class="form-control" required></textarea>
+      </td>
+
+    </tr>
+    <tr>
+      <td><h4>Cost</h4></td>
+      <td><label for="textfield3"></label>
+      <input type="text" name="textfield33" class="form-control" id="textfield3" required /></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="button" id="button" value="Submit" class="btn btn-primary" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
